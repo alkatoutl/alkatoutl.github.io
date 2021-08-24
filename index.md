@@ -187,7 +187,9 @@ def test_avg_speed_per_pickup():
 **Repeated for get_avg_speed_per_dropoff() testing**
 ```
 When running the tests, I ran into an interesting problem. The tests I wrote were failing but when I ran my code on the actual data it worked- a common issue any software engineer runs into. 
+
 After some help from one of the mentors, Vinesh Kannan, we realized what the problem was. We were using SQLite and the AVG() function in that language has undefined behavior for integers meaning we need to make sure we use float values. After changing the integers in my unit tests to floats, both tests finally passed.
+
 However, I looked back at the [table](https://alkatoutl.github.io/#extracting-transforming--loading) I created for the extracted data and confirmed that I did take trip_miles in as integers, so why was my code working on the actual data the whole time? Shouldn't it have failed the same way my unit tests did?
 
 Turns out, SQLite has flexible "type affinity" meaning that columns with a certain type can store values that are of a different type. In the case of the table I created, I had the column trip_minutes as integers but the data values from the [Data Portal](https://data.cityofchicago.org/Transportation/Taxi-Trips/wrvz-psew) for trip_minutes were floats so my table held the data as floats and not integers, allowing it to work with SQLite's AVG() function.
