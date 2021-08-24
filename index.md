@@ -1,8 +1,10 @@
 ## Building TransitHealth
 
-You can use the [editor on GitHub](https://github.com/alkatoutl/alkatoutl.github.io/edit/main/index.md) to maintain and preview the content for your website in Markdown files.
+Would you bet that most taxis drop off their riders inside or outside their same pick up location?
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+You’re probably thinking people who take taxis are trying to get somewhere further away than where they currently are, but let's take a look at the data:
+
+![Image](https://drive.google.com/file/d/1NSNwcxaVXpodzvR3-1mI21YGaiZGAvEd/view?usp=sharing)
 
 ### Markdown
 
