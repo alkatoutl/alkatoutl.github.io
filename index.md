@@ -6,7 +6,7 @@ You’re probably thinking people who take taxis are trying to get somewhere fur
 
 ![Image](https://i.ibb.co/1JphCYR/taxisnip.jpg)
 
-### Markdow
+### Markdown
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
