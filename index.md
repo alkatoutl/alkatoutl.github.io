@@ -103,7 +103,7 @@ My first task was to find metrics that could fit nicely on our website's [Explor
 Based on the data I extracted I thought it would be useful for our users to know the average speed of taxis per pickup and dropoff area. 
 To do this I wrote the appropriate queries in the following code:
 ```markdown
-rom api.utils.database import rows_to_dicts
+from api.utils.database import rows_to_dicts
 
 #multiple metrics for the taxi trip dataset
 class TaxiTripMetrics:
@@ -146,29 +146,25 @@ from api.utils.testing import create_test_db
 #tests average speed per pickup location function
 def test_avg_speed_per_pickup():
     spickup_table = [
-        {
-            "pickup_community_area": 76,
-            "trip_miles": 4.0,
-            "trip_minutes": 20.0
-        },
+      { "pickup_community_area": 76, 
+        "trip_miles": 4.0, 
+        "trip_minutes": 20.0 
+      },
         
-        {
-            "pickup_community_area": 76,
-            "trip_miles": 10.0,
-            "trip_minutes": 30.0
-        },
+      { "pickup_community_area": 76, 
+        "trip_miles": 10.0, 
+        "trip_minutes": 30.0 
+      },
         
-        {
-            "pickup_community_area": 45,
-            "trip_miles": 2.0,
-            "trip_minutes": 10.0
-        },
+      { "pickup_community_area": 45, 
+        "trip_miles": 2.0, 
+        "trip_minutes": 10.0 
+      },
         
-        {
-            "pickup_community_area": 3,
-            "trip_miles": 6.0,
-            "trip_minutes": 30.0
-        }
+      { "pickup_community_area": 3,
+        "trip_miles": 6.0, 
+        "trip_minutes": 30.0 
+      }
     ]
     
     connection, cur = create_test_db(
@@ -188,5 +184,23 @@ def test_avg_speed_per_pickup():
         { "area_number": 76, "value": 16.0}
     ], "Should have three results for each pickup_community_area."
 
-**_Repeated for get_avg_speed_per_dropoff() testing_**
+**Repeated for get_avg_speed_per_dropoff() testing**
 ```
+When running the tests, I ran into an interesting problem. The tests I wrote were failing but when I ran my code on the actual data it worked- a common issue any software engineer runs into. 
+After some help from one of the mentors, Vinesh Kannan, we realized what the problem was. We were using SQLite and the AVG() function in that language has undefined behavior for integers meaning we need to make sure we use float values. After changing the integers in my unit tests to floats, both tests finally passed.
+However, I looked back at the [table](https://alkatoutl.github.io/#extracting-transforming--loading) I created for the extracted data and confirmed that I did take trip_miles in as integers, so why was my code working on the actual data the whole time? Shouldn't it have failed the same way my unit tests did?
+
+Turns out, SQLite has flexible "type affinity" meaning that columns with a certain type can store values that are of a different type. In the case of the table I created, I had the column trip_minutes as integers but the data values from the [Data Portal](https://data.cityofchicago.org/Transportation/Taxi-Trips/wrvz-psew) for trip_minutes were floats so my table held the data as floats and not integers, allowing it to work with SQLite's AVG() function.
+
+After figuring all of that out, my data was ready to go live on our [Explorer Scatter View](https://scarletstudio.github.io/transithealth/scatter).
+I added my metric functions to the Scatter View's endpoint created using Flask by including these two lines of code in its supported metrics:
+```markdown
+supported_metrics = {
+...
+"avg_speed_per_dropoff": lambda: metric_tt.get_avg_speed_per_dropoff(),
+"avg_speed_per_pickup": lambda: metric_tt.get_avg_speed_per_pickup(),
+... }
+```
+and then used JavaScript to finally add my metric to the application, giving the final results!
+
+![Image](https://i.ibb.co/YtrxW9q/scatter1.jpg)   ![Image](https://i.ibb.co/WvRSX3D/scatter2.jpg)
