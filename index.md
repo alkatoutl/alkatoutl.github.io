@@ -209,7 +209,7 @@ and then used JavaScript to finally add my metric to the application, giving the
 
 ## Taxi Trip Data Questions
 
-After adding to TransitHealth's Scatter View, I then worked on what questions our users would have that couldn't be answered by a scatter plot. Again, based on the data I extracted, I thought it would be most useful to know, for taxis, the most common drop off locations per pickup area and the most common form of payment for every pickup and drop off area. 
+After adding to [TransitHealth's Scatter View](https://scarletstudio.github.io/transithealth/scatter), I then worked on what questions our users would have that couldn't be answered by a scatter plot. Again, based on the data I extracted, I thought it would be most useful to know, for taxis, the most common drop off locations per pickup area and the most common form of payment for every pickup and drop off area. 
 
 To do this I wrote the following queries in the same code format as I did for the taxi metrics before:
 ```markdown
@@ -247,7 +247,7 @@ class TaxiTripQuestions:
        
 **The same queries were used for the most used payment types per pickup and drop off location except pickup_community_area or dropoff_community_area (depending on the function) and payment_type were selected instead of both pickup_community_area and dropoff_community_area**       
 ```
-Originally, though, I had the following query in the code (in this case for mos:
+Originally, though, I had the following query in the code:
 ```markdown
 SELECT q.pickup_community_area, q.dropoff_community_area
         FROM(
@@ -265,4 +265,4 @@ Opposite to what happened with the [taxi metrics](https://alkatoutl.github.io/#t
 
 After some brainstorming with one of our mentors, we figured out what went wrong. The way I was using the GROUP BY function was having the query return random drop off areas for every pickup area instead of the most common one. So, while I was lucky to pass my own unit tests, GitHub put a halting stop to that! 
 
-To fix this 
+To fix this, as you see in the first codeblock in this section, 
