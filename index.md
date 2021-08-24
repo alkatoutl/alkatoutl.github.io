@@ -4,7 +4,7 @@ Would you bet that most taxis drop off their riders inside or outside their same
 
 You’re probably thinking people who take taxis are trying to get somewhere further away than where they currently are, but let's take a look at the data:
 
-![Image](https://ibb.co/dJ31Nsk)
+![Image](https://i.ibb.co/1JphCYR/taxisnip.jpg)
 
 ### Markdow
 
