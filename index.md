@@ -206,3 +206,63 @@ supported_metrics = {
 and then used JavaScript to finally add my metric to the application, giving the final results!
 
 ![Image](https://i.ibb.co/YtrxW9q/scatter1.jpg)   ![Image](https://i.ibb.co/WvRSX3D/scatter2.jpg)
+
+## Taxi Trip Data Questions
+
+After adding to TransitHealth's Scatter View, I then worked on what questions our users would have that couldn't be answered by a scatter plot. Again, based on the data I extracted, I thought it would be most useful to know, for taxis, the most common drop off locations per pickup area and the most common form of payment for every pickup and drop off area. 
+
+To do this I wrote the following queries in the same code format as I did for the taxi metrics before:
+```markdown
+from api.utils.database import rows_to_dicts
+
+#multiple taxi trip questions
+class TaxiTripQuestions:
+    def __init__(self, connection):
+        self.connection = connection
+   
+    #takes in pickup_community_area and returns most common dropoff_community_area
+    def most_common_dropoff(self):
+        query = """
+        SELECT
+            pickup_community_area,
+            dropoff_community_area,
+            max(count) as max_count,
+            CAST(max(count) as FLOAT) / sum(count)  as percentage
+        FROM (
+            SELECT
+                pickup_community_area,
+                dropoff_community_area,
+                CAST(count(1) as FLOAT) as count
+            FROM taxitrips
+            GROUP BY
+                pickup_community_area,
+                dropoff_community_area
+            ) 
+        GROUP BY pickup_community_area
+        """
+        cur = self.connection.cursor()
+        cur.execute(query)
+        rows = rows_to_dicts(cur, cur.fetchall())
+        return rows
+       
+**The same queries were used for the most used payment types per pickup and drop off location except pickup_community_area or dropoff_community_area (depending on the function) and payment_type were selected instead of both pickup_community_area and dropoff_community_area**       
+```
+Originally, though, I had the following query in the code (in this case for mos:
+```markdown
+SELECT q.pickup_community_area, q.dropoff_community_area
+        FROM(
+            SELECT p.pickup_community_area, p.dropoff_community_area, p.count
+            FROM (
+                SELECT pickup_community_area, dropoff_community_area, count(1) as count
+                FROM  taxitrips
+                GROUP BY pickup_community_area, dropofff_communtiy_area
+            ) as p
+            GROUP BY p.pickup_community_area, p.count
+        ) as q
+        GROUP BY q.pickup_community_area
+```
+Opposite to what happened with the [taxi metrics](https://alkatoutl.github.io/#taxi-trip-metrics), this code passed the unit tests that I wrote but failed to pass the tests on GitHub when committed. 
+
+After some brainstorming with one of our mentors, we figured out what went wrong. The way I was using the GROUP BY function was having the query return random drop off areas for every pickup area instead of the most common one. So, while I was lucky to pass my own unit tests, GitHub put a halting stop to that! 
+
+To fix this 
