@@ -12,7 +12,7 @@ Utilizing raw data given from the city, I was able to answer more questions abou
 
 # About Transithealth
 
-The website I’m talking about is called TransitHealth and it was developed by a team of interns, including myself, with the help of professional software engineers. What we each did was we took raw data on different statistics provided by the city of Chicago and used Python to ingest and transform those large datasets in an offline pipeline. Each of us then used Flask and SQL to implement features in a RESTful API and write unit tests as well as JavaScript (React) to implement features in the frontend- a full-stack development project!
+The website I’m talking about is called [TransitHealth](https://scarletstudio.github.io/transithealth ) and it was developed by a team of interns, including myself, with the help of professional software engineers. What we each did was we took raw data on different statistics provided by the city of Chicago and used Python to ingest and transform those large datasets in an offline pipeline. Each of us then used Flask and SQL to implement features in a RESTful API and write unit tests as well as JavaScript (React) to implement features in the frontend- a full-stack development project!
 
 # My Contributions
 
@@ -20,7 +20,7 @@ The website I’m talking about is called TransitHealth and it was developed by 
 I had the responsibility of looking over the [Taxi Trip Data](https://data.cityofchicago.org/Transportation/Taxi-Trips/wrvz-psew) provided by the [Chicago Data Portal](https://data.cityofchicago.org/). I had to decide what information would be most beneficial to users visiting our site and- using the same methodology as described above- I extracted, transformed, and loaded that data to our offline pipeline.
 
 To extract the data that I thought would help provide the most useful insights to our users, I used the following SQL query:
-```
+```markdown
 SELECT date_trunc_ymd(trip_start_timestamp) as ymd, 
     trip_id , 
     taxi_id, 
@@ -37,7 +37,7 @@ LIMIT 100000
 ```
 
 and proceeded to transform it with the following code:
-```
+```markdown
 import sys
 sys.path.append("./")
 
@@ -80,7 +80,7 @@ print(f"Transformed and wrote {len(df)} records in {secs:.1f} secs.")
 Basically, I created an input and output file pathway for the data that could go into our Makefile and setup a few conditions. I removed any rows with an unknown date to reinforce the 2021 constraint and then replaced null values in pickup and drop off areas with the value 0. Looking back, I think it would have been more beneficial to drop those rows as well due to the fact that they don't provide valuable insight other than the amount of reports with unknown pickup/drop off areas. 
 
 Finally, I needed to load my newly extracted and transformed data into our database so I created a table for it:
-```
+```markdown
 CREATE TABLE taxitrips (
     ymd TEXT,
     trip_id TEXT,
@@ -94,4 +94,99 @@ CREATE TABLE taxitrips (
 ```
 After adding some finishing touches to our Makefile, my data was now ready for me to start using it!
 
+## Taxi Trip Metrics
 
+My first task was to find metrics that could fit nicely on our website's [Explorer Scatter View](https://scarletstudio.github.io/transithealth/scatter).
+
+![Image](https://i.ibb.co/zSCTX7h/scatterv.jpg)
+
+Based on the data I extracted I thought it would be useful for our users to know the average speed of taxis per pickup and dropoff area. 
+To do this I wrote the appropriate queries in the following code:
+```markdown
+rom api.utils.database import rows_to_dicts
+
+#multiple metrics for the taxi trip dataset
+class TaxiTripMetrics:
+    def __init__(self, connection):
+        self.connection = connection
+        
+    #returns avergae trip speed per pickup area    
+    def get_avg_speed_per_pickup(self):
+        query = """
+        SELECT pickup_community_area as area_number, AVG(trip_miles/(trip_minutes/60)) as value
+        FROM taxitrips
+        GROUP BY pickup_community_area
+        """
+        cur = self.connection.cursor()
+        cur.execute(query)
+        rows = rows_to_dicts(cur, cur.fetchall())
+        return rows
+        
+    #returns average trip speed per dropoff area
+    def get_avg_speed_per_dropoff(self):
+        query = """
+        SELECT dropoff_community_area as area_number, AVG(trip_miles/(trip_minutes/60)) as value
+        FROM taxitrips
+        GROUP BY dropoff_community_area
+        """
+        cur = self.connection.cursor()
+        cur.execute(query)
+        rows = rows_to_dicts(cur, cur.fetchall())
+        return rows
+```
+I then wrote unit tests for my code to make sure it worked given a smaller set of data:
+
+```markdown
+import sys
+sys.path.append("../")
+
+from api.metrics.taxitrips import TaxiTripMetrics
+from api.utils.testing import create_test_db
+
+#tests average speed per pickup location function
+def test_avg_speed_per_pickup():
+    spickup_table = [
+        {
+            "pickup_community_area": 76,
+            "trip_miles": 4.0,
+            "trip_minutes": 20.0
+        },
+        
+        {
+            "pickup_community_area": 76,
+            "trip_miles": 10.0,
+            "trip_minutes": 30.0
+        },
+        
+        {
+            "pickup_community_area": 45,
+            "trip_miles": 2.0,
+            "trip_minutes": 10.0
+        },
+        
+        {
+            "pickup_community_area": 3,
+            "trip_miles": 6.0,
+            "trip_minutes": 30.0
+        }
+    ]
+    
+    connection, cur = create_test_db(
+        scripts=[
+            "./pipeline/load/taxi_trip.sql"
+        ],
+        tables={
+            "taxitrips": spickup_table
+        }
+    )
+    
+    metric = TaxiTripMetrics(connection)
+
+    assert metric.get_avg_speed_per_pickup() == [
+        { "area_number": 3, "value": 12.0},
+        { "area_number": 45, "value": 12.0},
+        { "area_number": 76, "value": 16.0}
+    ], "Should have three results for each pickup_community_area."
+
+**_Repeated for get_avg_speed_per_dropoff() testing_**
+```
