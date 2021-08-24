@@ -134,58 +134,8 @@ class TaxiTripMetrics:
         rows = rows_to_dicts(cur, cur.fetchall())
         return rows
 ```
-I then wrote unit tests for my code to make sure it worked given a smaller set of data:
+I then wrote unit tests for my code to make sure it worked given a smaller set of data which you can see [here.](https://github.com/scarletstudio/transithealth/blob/main/api/metrics/taxitrips_test.py)
 
-```markdown
-import sys
-sys.path.append("../")
-
-from api.metrics.taxitrips import TaxiTripMetrics
-from api.utils.testing import create_test_db
-
-#tests average speed per pickup location function
-def test_avg_speed_per_pickup():
-    spickup_table = [
-      { "pickup_community_area": 76, 
-        "trip_miles": 4.0, 
-        "trip_minutes": 20.0 
-      },
-        
-      { "pickup_community_area": 76, 
-        "trip_miles": 10.0, 
-        "trip_minutes": 30.0 
-      },
-        
-      { "pickup_community_area": 45, 
-        "trip_miles": 2.0, 
-        "trip_minutes": 10.0 
-      },
-        
-      { "pickup_community_area": 3,
-        "trip_miles": 6.0, 
-        "trip_minutes": 30.0 
-      }
-    ]
-    
-    connection, cur = create_test_db(
-        scripts=[
-            "./pipeline/load/taxi_trip.sql"
-        ],
-        tables={
-            "taxitrips": spickup_table
-        }
-    )
-    
-    metric = TaxiTripMetrics(connection)
-
-    assert metric.get_avg_speed_per_pickup() == [
-        { "area_number": 3, "value": 12.0},
-        { "area_number": 45, "value": 12.0},
-        { "area_number": 76, "value": 16.0}
-    ], "Should have three results for each pickup_community_area."
-
-**Repeated for get_avg_speed_per_dropoff() testing**
-```
 When running the tests, I ran into an interesting problem. The tests I wrote were failing but when I ran my code on the actual data it worked- a common issue any software engineer runs into. 
 
 After some help from one of the mentors, Vinesh Kannan, we realized what the problem was. We were using SQLite and the AVG() function in that language has undefined behavior for integers meaning we need to make sure we use float values. After changing the integers in my unit tests to floats, both tests finally passed.
@@ -203,7 +153,7 @@ supported_metrics = {
 "avg_speed_per_pickup": lambda: metric_tt.get_avg_speed_per_pickup(),
 ... }
 ```
-and then used JavaScript to finally add my metric to the application, giving the final results!
+and then used JavaScript to finally add my metric to the website, giving the final results!
 
 ![Image](https://i.ibb.co/YtrxW9q/scatter1.jpg)   ![Image](https://i.ibb.co/WvRSX3D/scatter2.jpg)
 
@@ -245,7 +195,9 @@ class TaxiTripQuestions:
         rows = rows_to_dicts(cur, cur.fetchall())
         return rows
        
-**The same queries were used for the most used payment types per pickup and drop off location except pickup_community_area or dropoff_community_area (depending on the function) and payment_type were selected instead of both pickup_community_area and dropoff_community_area**       
+**The same queries were used for the most used payment types per pickup and drop off location 
+except pickup_community_area or dropoff_community_area (depending on the function) and payment_type 
+were selected instead of both pickup_community_area and dropoff_community_area**       
 ```
 Originally, though, I had the following query in the code:
 ```markdown
@@ -261,8 +213,52 @@ SELECT q.pickup_community_area, q.dropoff_community_area
         ) as q
         GROUP BY q.pickup_community_area
 ```
-Opposite to what happened with the [taxi metrics](https://alkatoutl.github.io/#taxi-trip-metrics), this code passed the unit tests that I wrote but failed to pass the tests on GitHub when committed. 
+Opposite to what happened with the [taxi metrics](https://alkatoutl.github.io/#taxi-trip-metrics), this code passed the [unit tests](https://github.com/scarletstudio/transithealth/blob/main/api/questions/taxitrips_test.py) that I wrote but failed to pass the tests on GitHub when committed. 
 
 After some brainstorming with one of our mentors, we figured out what went wrong. The way I was using the GROUP BY function was having the query return random drop off areas for every pickup area instead of the most common one. So, while I was lucky to pass my own unit tests, GitHub put a halting stop to that! 
 
-To fix this, as you see in the first codeblock in this section, 
+To fix this, as you see in the first codeblock in this section, I added the count function to count the number of unique pickup area and drop off area combinations and then used the MAX function to pick the combination with the highest count for each pickup area. I also decided to add a percentage attribute to help the user visualize and understand the actual commonness of the dropoff areas so I needed to cast the counts as floats.
+
+For the most common payment method for pickup and drop off areas I used the same exact methodology and you can view it [here.](https://github.com/scarletstudio/transithealth/blob/main/api/questions/taxitrips.py)
+
+I then created my own endpoint using Flask:
+```markdown
+@app.route("/question/taxitrips")
+    def taxitrips():
+        most_common_dropoff = metric_tt.most_common_dropoff()
+        payment_per_pickup = metric_tt.get_payment_type_by_pickup()
+        payment_per_dropoff = metric_tt.get_payment_type_by_dropoff()
+        return jsonify({
+            "most_common_dropoff": most_common_dropoff,
+            "payment_per_pickup": payment_per_pickup,
+            "payment_per_dropoff": payment_per_dropoff
+        })
+```
+and then it was time to use JavaScript to add it to our website and implement the frontend design of the data presented to our users.
+
+For the frontend design I used the following structure (for the full code you can look [here](https://github.com/scarletstudio/transithealth/blob/main/app/components/questions/TaxiMostCommonDropoff.js) for the most common dropoff locations and [here](https://github.com/scarletstudio/transithealth/blob/main/app/components/questions/TaxiPaymentMethod.js) for the most common payment method per pickup and drop off locations):
+```markdown
+- Create constant pointing to corresponding endpoint
+- Create constant representing columns
+- Function that accesses endpoint and returns appropriate set of data
+- Create Table component from React
+```
+After that the data questions were ready to be added to the site using JavaScript:
+```markdown
+...},
+"taxi-most-common-dropoff": {
+    title: "Where are people usually getting dropped off by taxis?",
+    author: "Leilah Alkatout",
+    component: "taxi-most-common-dropoff",
+    description: "People get dropped off in different community areas by [..]",
+  },
+  "taxi-popular-payment-method":{
+    title: "What is the most popular payment method for taxis?",
+    author: "Leilah Alkatout",
+    component: "taxi-payment-method",
+    description: "People in different areas of Chicago prefer using [...],
+  }, ...
+```
+where the `component` comes from the imported frontend component desccribed above.
+
+After that, the data questions were live 
