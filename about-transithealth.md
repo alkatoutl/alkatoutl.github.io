@@ -1,4 +1,4 @@
 layout: page
 title: "About TransitHealth"
 permalink: /about/
-theme: jekyll-leap-day
+theme: jekyll-theme-leap-day
