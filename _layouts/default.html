@@ -1,65 +1,57 @@
-{% include head.html %}
-    <style>
-      .demo.container {
-        width: 90%;
-        margin: 10px auto;
-      }
-      
-      .global .example {
-        padding: 2em 0em;
-        margin: 2em 0em;
-      }
-      
-      .global .button.demo > .buttons,
-      .global .button.demo > .button,
-      .global .button.demo > .segment > .button {
-        margin-bottom: 0.5em;
-      }
-      .global h4:first-child {
-        font-weight: bold !important;
-        margin: 0em 0em 1em !important;
-      }
-      .global .example:first-child {
-        margin-top: 0;
-        padding-top: 0;
-      }
-      .global .segment.example {
-        z-index: 1;
-      }
+<!doctype html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-      /* [Hack] for Kitchen Sink. Needs to be done in Semantic UI Grid or take care of all resolutions. */
-      @media only screen and (min-width : 950px) {
-        .demo.container {
-          width: 950px;
-        }
-        
-      }
-
-    </style>
-
-  </head>
-  <body class="global landing">
-    <!--[if lt IE 7]>
-        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+{% seo %}
+    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+    <script src="https://code.jquery.com/jquery-3.3.0.min.js" integrity="sha256-RTQy8VOmNlT6b2PIRur37p6JEBZUE7o8wPgMvu18MC4=" crossorigin="anonymous"></script>
+    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+    <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
     <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-    {% if site.facebook %}
-      {% include fb-setup.html %}
-    {% endif %}
+    {% include head-custom.html %}
+  </head>
+  <body>
 
-    {% if site.pagebar %}
-    {% include page-bar.html %}
-    <div class="pusher">
-    {% endif %}
-        {% include landing-header.html %}
+      <header>
+        <h1>{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
+        <p>{{ page.description | default: site.description | default: site.github.project_tagline }}</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="{{ site.github.repository_url }}" class="button fork"><strong>View On GitHub</strong></a>
+        {% if site.show_downloads %}
+          <div class="downloads">
+            <span>Downloads:</span>
+            <ul>
+              <li><a href="{{ site.github.zip_url }}" class="button">ZIP</a></li>
+              <li><a href="{{ site.github.tar_url }}" class="button">TAR</a></li>
+            </ul>
+          </div>
+        {% endif %}
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
         {{ content }}
-        {% include footer.html %}
-    {% if site.pagebar %}
+
+      </section>
+      <footer>
+        {% if site.github.is_project_page %}
+          <p>Project maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
+        {% endif %}
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/mattgraham">mattgraham</a></small></p>
+      </footer>
     </div>
-    {% endif %}
-
-    {% include js.html %}
-    {% include embed-google-analytics.html %}
   </body>
-
 </html>
+
