@@ -16,7 +16,7 @@ The website I’m talking about is called TransitHealth and it was developed by 
 
 # My Contributions
 
-## Extracting, Transforming, $ Loading
+## Extracting, Transforming, & Loading
 I had the responsibility of looking over the [Taxi Trip Data](https://data.cityofchicago.org/Transportation/Taxi-Trips/wrvz-psew) provided by the [Chicago Data Portal](https://data.cityofchicago.org/). I had to decide what information would be most beneficial to users visiting our site and- using the same methodology as described above- I extracted, transformed, and loaded that data to our offline pipeline.
 
 To extract the data that I thought would help provide the most useful insights to our users, I used the following SQL query:
