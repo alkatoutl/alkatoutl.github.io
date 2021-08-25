@@ -259,6 +259,8 @@ After that the data questions were ready to be added to the site using JavaScrip
     description: "People in different areas of Chicago prefer using [...],
   }, ...
 ```
-where the `component` comes from the imported frontend component desccribed above.
+where the `component` comes from the imported frontend component desccribed previously.
 
-After that, the data questions were live 
+After that, the data questions were live! You can view all of them [here](https://scarletstudio.github.io/transithealth/questions).
+
+![Image](https://i.ibb.co/FHk3dtT/dq2.jpg)
