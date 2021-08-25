@@ -264,3 +264,8 @@ where the `component` comes from the imported frontend component desccribed prev
 After that, the data questions were live! You can view all of them [here](https://scarletstudio.github.io/transithealth/questions).
 
 ![Image](https://i.ibb.co/FHk3dtT/dq2.jpg)
+
+# Stretch Project
+
+After finishing up my contributions to [TransitHealth](https://scarletstudio.github.io/transithealth) I was given the opportunity to work on a "[stretch project](https://twitter.com/mekkaokereke/status/1218940982122577921)." 
+Bascially it was my time to develop something that stretched beyond the work of the internship
