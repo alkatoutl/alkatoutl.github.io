@@ -279,8 +279,8 @@ After breaking down the customer segment into its two groups, transit users and 
 ![Image](https://i.ibb.co/xCv6wd1/sp.jpg)
 
 
-<object data="https://pdfhost.io/v/eIYkql4BC_TransitHealth_IL_Proposal.pdf" type="application/pdf" width="700px" height="700px">
-    <embed src="https://pdfhost.io/v/eIYkql4BC_TransitHealth_IL_Proposal.pdf">
-        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="https://pdfhost.io/v/eIYkql4BC_TransitHealth_IL_Proposal.pdf">Download PDF</a>.</p>
+<object data="https://online.flippingbook.com/view/998906979/" type="application/pdf" width="700px" height="700px">
+    <embed src="https://online.flippingbook.com/view/998906979/">
+        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="https://online.flippingbook.com/view/998906979/">Download PDF</a>.</p>
     </embed>
 </object>
