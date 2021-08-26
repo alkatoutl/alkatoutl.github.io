@@ -267,5 +267,20 @@ After that, the data questions were live! You can view all of them [here](https:
 
 # Stretch Project
 
-After finishing up my contributions to [TransitHealth](https://scarletstudio.github.io/transithealth) I was given the opportunity to work on a "[stretch project](https://twitter.com/mekkaokereke/status/1218940982122577921)." 
-Bascially it was my time to develop something that stretched beyond the work of the internship
+After finishing up my contributions to [TransitHealth](https://scarletstudio.github.io/transithealth) I was given the opportunity to work on a "[stretch project](https://twitter.com/mekkaokereke/status/1218940982122577921)".
+Bascially, it was my time to develop something that stretched beyond the work of the internship. Outside of software engineering, I also have a strong interest in business which is why I aspire to be a product manager. Having this opportunity to work on something that went beyond the internship, I decided to develop a product management proposal for the [internationalizaion (i18n) and localization (l10n)](https://www.w3.org/International/questions/qa-i18n) of TransitHealth.
+
+In order to decide on i18n and l10n, though, I had to do some research.
+First, I looked up the current trends for website design and found that accessibility and customized content based on geolocation were among some of the top ones. Second, I looked at who made up our targeted customer segment and what their needs were.
+TransitHealth is a website that gives data on city transit and health so generally the type of person who would be using our site would most likely be someone who uses city transit and someone who cares about health management for reasons like lack of healthcare access, regular exposure to people/environments outside of their home during Covid and so on. Now I needed to do some research on _who_ those people were and what their regular needs looked like. 
+
+After breaking down the customer segment into its two groups, transit users and health-conscious residents, I did research on each to find out what demographics they were made up of which is shown down below:
+
+![Image](https://i.ibb.co/xCv6wd1/sp.jpg)
+
+
+<object data="https://pdfhost.io/v/eIYkql4BC_TransitHealth_IL_Proposal.pdf" type="application/pdf" width="700px" height="700px">
+    <embed src="https://pdfhost.io/v/eIYkql4BC_TransitHealth_IL_Proposal.pdf">
+        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="https://pdfhost.io/v/eIYkql4BC_TransitHealth_IL_Proposal.pdf">Download PDF</a>.</p>
+    </embed>
+</object>
