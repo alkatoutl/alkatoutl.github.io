@@ -142,7 +142,7 @@ I then wrote unit tests for my code to make sure it worked given a smaller set o
 
 When running the tests, I ran into an interesting problem. The tests I wrote were failing but when I ran my code on the actual data it worked- a common issue any software engineer runs into. 
 
-After some help from one of the mentors, Vinesh Kannan, we realized what the problem was. We were using SQLite and the AVG() function in that language has undefined behavior for integers meaning we need to make sure we use float values. After changing the integers in my unit tests to floats, both tests finally passed.
+After some help from one of the mentors, [Vinesh Kannan](https://www.linkedin.com/in/vineshkannan/), we realized what the problem was. We were using SQLite and the AVG() function in that language has undefined behavior for integers meaning we need to make sure we use float values. After changing the integers in my unit tests to floats, both tests finally passed.
 
 However, I looked back at the [table](https://alkatoutl.github.io/#extracting-transforming--loading) I created for the extracted data and confirmed that I did take trip_miles in as integers, so why was my code working on the actual data the whole time? Shouldn't it have failed the same way my unit tests did?
 
@@ -281,7 +281,7 @@ In order to decide on i18n and l10n, though, I had to do some research.
 
 First, I looked up the current trends for website design and found that accessibility and customized content based on geolocation were among some of the top ones and I thought that was enough to advocate for i18n and l10n. **Wrong**.
 
-After getting the chance to talk to an actual product manager at Google, Diana Chen, she helped me see that I not only needed to look at the market and its trends as a product manager, but it was also just as important to look at who our users are. The overall role of a product manager is to understand your customers and their needs to make better products for them. So, I went back and did some research on who our targeted customer segment was and what their needs were.
+After getting the chance to talk to an actual product manager at Google, [Diana Chen](https://www.linkedin.com/in/dianakchen/), she helped me see that I not only needed to look at the market and its trends as a product manager, but it was also just as important to look at who our users are. The overall role of a product manager is to understand your customers and their needs to make better products for them. So, I went back and did some research on who our targeted customer segment was and what their needs were.
 
 [TransitHealth](https://scarletstudio.github.io/transithealth ) is a website that gives data on public city transit and health so generally the type of person who would be using our site would most likely be someone who uses public city transit and someone who cares about health management for reasons like lack of healthcare access, regular exposure to people/environments outside of their home during Covid and so on. Now I needed to do some research on _who_ those people were and what their regular needs looked like. 
 
@@ -299,7 +299,7 @@ With this, I knew i18n and l10n would be a great benefit for our users and would
 
 For outlining how we would implement i18n and l10n and what it would actually look like on our site, my software engineering experience came in handy and helped me get an idea of what would need to be done to our code. 
 
-Working with another one of our engineer interns, Shahzia Perveen, she took the first steps in implementing a translation feature for Urdu for her data question on the website:
+Working with another one of our engineer interns, [Shahzia Perveen](https://www.linkedin.com/in/shahzia-perveen/), she took the first steps in implementing a translation feature for Urdu for her data question on the website:
 
 ![Image](https://i.ibb.co/hgfNF0V/129499091-6266c509-0410-4657-8fc4-a302b93be4ea.png)
 
@@ -309,6 +309,7 @@ Down below you can see my full proposal:
 
 <iframe src="https://drive.google.com/file/d/1NJkqHF6lB_znIj4iY7dh8xOVgDPiYf8F/preview" width="590" height="480" allow="autoplay"></iframe>
 
+
 # Takeaways
 
 Being able to contribute to [TransitHealth](https://scarletstudio.github.io/transithealth ) as much as I did gave me genuine hands-on experience with software engineering which is invaluable to me as I look forward to graduating in the spring of 2022 and finding a job thereafter. Working with full-stack development is something I have never done before and it along with all the amazing help my mentors have provided me along the way has given me much more confidence in my abilities to tackle real world problems.
@@ -316,4 +317,3 @@ Being able to contribute to [TransitHealth](https://scarletstudio.github.io/tran
 Also getting the chance to talk to an actual product manager and work on a realistic project in the way that they would has also gotten me more excited about the field and has confirmed that it really is something I am passionate about doing in my future. I am incredibly grateful for my mentor for giving us the chance to connect and for Diana and all of her help, her feedback and advice were invaluable to me.
 
 Most of all these two projects have given me the opportunity to use my current skills and attain new ones while working towards a product that helps the general public, my number one goal since I was a child.
-
