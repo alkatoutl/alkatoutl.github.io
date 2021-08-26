@@ -280,7 +280,7 @@ After breaking down the customer segment into its two groups, transit users and 
 
 Knowing that majority of immigrants have a first language different than English, I decided to look up customer behaviors when it came to languages and found the following:
 
-<a href="https://imgbb.com/"><img src="https://i.ibb.co/CVvjLNM/sp4.jpg" alt="sp4" border="0"></a><br /><a target='_blank' href='https://imgbb.com/'>upload photos online</a><br />
+![Image](https://i.ibb.co/CVvjLNM/sp4.jpg)
 
 With this, I knew i18n and l10n would be a great benefit for our users and would also greatly improve TransitHealth overall.
 
@@ -288,14 +288,10 @@ For outlining how we would implement i18n and l10n and what it would actually lo
 
 Working with another one of our engineer interns, Shahzia Perveen, she took the first steps in implementing a translation feature for Urdu for her data question on the website:
 
-<a href="https://ibb.co/QJdVv0M"><img src="https://i.ibb.co/hgfNF0V/129499091-6266c509-0410-4657-8fc4-a302b93be4ea.png" alt="129499091-6266c509-0410-4657-8fc4-a302b93be4ea" border="0"></a><br /><a target='_blank' href='https://imgbb.com/'>upload photos online</a><br />
+![Image](https://i.ibb.co/hgfNF0V/129499091-6266c509-0410-4657-8fc4-a302b93be4ea.png)
 
 Having an initial start to this project already has been very exciting and although the internship has ended, the mentors running it have agreed to have future interns work on the i18n and l10n of TransitHealth!
 
 Down below you can see my full proposal:
 
-<object data="https://online.flippingbook.com/view/998906979/" type="application/pdf" width="500px" height="500px">
-    <embed src="https://online.flippingbook.com/view/998906979/">
-        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="https://online.flippingbook.com/view/998906979/">Download PDF</a>.</p>
-    </embed>
-</object>
+<iframe src="https://drive.google.com/file/d/1NJkqHF6lB_znIj4iY7dh8xOVgDPiYf8F/preview" width="640" height="480" allow="autoplay"></iframe>
