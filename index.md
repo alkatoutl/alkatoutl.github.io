@@ -276,10 +276,25 @@ TransitHealth is a website that gives data on city transit and health so general
 
 After breaking down the customer segment into its two groups, transit users and health-conscious residents, I did research on each to find out what demographics they were made up of which is shown down below:
 
-![Image](https://i.ibb.co/xCv6wd1/sp.jpg)
+![Image](https://i.ibb.co/Zxk20yS/sp1.jpg)
 
+Knowing that majority of immigrants have a first language different than English, I decided to look up customer behaviors when it came to languages and found the following:
 
-<object data="https://online.flippingbook.com/view/998906979/" type="application/pdf" width="700px" height="700px">
+![Image](https://i.ibb.co/PGn6TyJ/sp2.jpg)
+
+With this, I knew i18n and l10n would be a great benefit for our users and would also greatly improve TransitHealth overall.
+
+For outlining how we would implement i18n and l10n and what it would actually look like on our site, my software engineering experience came in handy and helped me get an idea of what would need to be done to our code. 
+
+Working with another one of our engineer interns, Shahzia Perveen, she took the first steps in implementing a translation feature for Urdu for her data question on the website:
+
+![Image](https://i.ibb.co/QJdVv0M/129499091-6266c509-0410-4657-8fc4-a302b93be4ea.png)
+
+Having an initial start to this project already has been very exciting and although the internship has ended, the mentors running it have agreed to have future interns work on the i18n and l10n of TransitHealth!
+
+Down below you can see my full proposal:
+
+<object data="https://online.flippingbook.com/view/998906979/" type="application/pdf" width="350px" height="350px">
     <embed src="https://online.flippingbook.com/view/998906979/">
         <p>This browser does not support PDFs. Please download the PDF to view it: <a href="https://online.flippingbook.com/view/998906979/">Download PDF</a>.</p>
     </embed>
