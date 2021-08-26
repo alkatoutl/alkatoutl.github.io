@@ -273,6 +273,8 @@ Bascially, it was my time to develop something that stretched beyond the work of
 
 In order to decide on i18n and l10n, though, I had to do some research.
 
+## User Persona
+
 First, I looked up the current trends for website design and found that accessibility and customized content based on geolocation were among some of the top ones. Second, I looked at who made up our targeted customer segment and what their needs were.
 
 TransitHealth is a website that gives data on city transit and health so generally the type of person who would be using our site would most likely be someone who uses city transit and someone who cares about health management for reasons like lack of healthcare access, regular exposure to people/environments outside of their home during Covid and so on. Now I needed to do some research on _who_ those people were and what their regular needs looked like. 
@@ -287,6 +289,8 @@ Knowing that majority of immigrants have a first language different than English
 
 With this, I knew i18n and l10n would be a great benefit for our users and would also greatly improve TransitHealth overall.
 
+## Implementing i18n and l10n
+
 For outlining how we would implement i18n and l10n and what it would actually look like on our site, my software engineering experience came in handy and helped me get an idea of what would need to be done to our code. 
 
 Working with another one of our engineer interns, Shahzia Perveen, she took the first steps in implementing a translation feature for Urdu for her data question on the website:
@@ -297,4 +301,4 @@ Having an initial start to this project already has been very exciting and altho
 
 Down below you can see my full proposal:
 
-<iframe src="https://drive.google.com/file/d/1NJkqHF6lB_znIj4iY7dh8xOVgDPiYf8F/preview" width="600" height="480" allow="autoplay"></iframe>
+<iframe src="https://drive.google.com/file/d/1NJkqHF6lB_znIj4iY7dh8xOVgDPiYf8F/preview" width="590" height="480" allow="autoplay"></iframe>
