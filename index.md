@@ -1,7 +1,7 @@
- ---
- title: Leilah Alkatout
- layout: default
- ---
+---
+layout: default
+title: Leilah Alkatout
+---
  
  {% for page in site.blog %}
   
