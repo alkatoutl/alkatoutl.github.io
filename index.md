@@ -1,9 +1,9 @@
  {% for page in site.blog %}
-  page.title
+  {{page.title}}
   
-  page.slug
+  {{page.slug}}
   
-  page.url
+  {{page.url}}
   
  {% endfor %}
 
