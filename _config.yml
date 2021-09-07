@@ -1,2 +1,5 @@
 theme: jekyll-theme-leap-day
 description: Welcome to my website! Here I display and discuss my recent work in software engineering & product management.
+collections:
+  blog:
+      output: true
