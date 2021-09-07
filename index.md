@@ -5,7 +5,7 @@ title: Leilah Alkatout
  
  {% for page in site.blog %}
   
-  [{{page.title}}]({{page.url}})
+  [{{page.title}}](./blog/{{page.slug}})
   
  {% endfor %}
 
