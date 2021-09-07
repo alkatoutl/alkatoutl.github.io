@@ -1,9 +1,10 @@
+ ---
+ title: Leilah Alkatout
+ ---
+ 
  {% for page in site.blog %}
-  {{page.title}}
   
-  {{page.slug}}
-  
-  {{page.url}}
+  [{{page.title}}]({{page.url}})
   
  {% endfor %}
 
