@@ -17,7 +17,7 @@ First, I looked up the current trends for website design and found that accessib
 
 After getting the chance to talk to an actual product manager at Google, [Diana Chen](https://www.linkedin.com/in/dianakchen/), she helped me see that I not only needed to look at the market and its trends as a product manager, but it was also just as important to look at who our users are. The overall role of a product manager is to understand your customers and their needs to make better products for them. So, I went back and did some research on who our targeted customer segment was and what their needs were.
 
-[TransitHealth](https://scarletstudio.github.io/transithealth ) is a website that gives data on public city transit and health so generally the type of person who would be using our site would most likely be someone who uses public city transit and someone who cares about health management for reasons like lack of healthcare access, regular exposure to people/environments outside of their home during Covid and so on. Now I needed to do some research on _who_ those people were and what their regular needs looked like. 
+[TransitHealth](https://scarletstudio.github.io/transithealth) is a website that gives data on public city transit and health so generally the type of person who would be using our site would most likely be someone who uses public city transit and someone who cares about health management for reasons like lack of healthcare access, regular exposure to people/environments outside of their home during Covid and so on. Now I needed to do some research on _who_ those people were and what their regular needs looked like. 
 
 After breaking down the customer segment into its two groups, public transit users and health-conscious residents, I did research on each to find out which demographics they were made up of which is shown down below:
 
@@ -37,7 +37,7 @@ Working with another one of our engineer interns, [Shahzia Perveen](https://www.
 
 ![Image](https://i.ibb.co/hgfNF0V/129499091-6266c509-0410-4657-8fc4-a302b93be4ea.png)
 
-Having an initial start to this project already has been very exciting and although the internship has ended, the mentors running it have agreed to have future interns work on the i18n and l10n of [TransitHealth](https://scarletstudio.github.io/transithealth )!
+Having an initial start to this project already has been very exciting and although the internship has ended, the mentors running it have agreed to have future interns work on the i18n and l10n of [TransitHealth](https://scarletstudio.github.io/transithealth)!
 
 Down below you can see my full proposal:
 
