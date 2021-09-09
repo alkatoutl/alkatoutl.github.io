@@ -1,6 +1,7 @@
 ---
-title: Building Transithealth
+title: Building TransitHealth
 layout: default
+description: Contributing to TransitHealth with Software Engineering
 ---
 # Building TransitHealth
 
@@ -272,3 +273,10 @@ where the `component` comes from the imported frontend component desccribed prev
 After that, the data questions were live! You can view all of them [here](https://scarletstudio.github.io/transithealth/questions).
 
 ![Image](https://i.ibb.co/FHk3dtT/dq2.jpg)
+
+# Takeaways
+
+Being able to contribute to [TransitHealth](https://scarletstudio.github.io/transithealth ) as much as I did gave me genuine hands-on experience with software engineering which is invaluable to me as I look forward to graduating in the spring of 2022 and finding a job thereafter. Working with full-stack development is something I have never done before and it along with all the amazing help my mentors have provided me along the way has given me much more confidence in my abilities to tackle real world problems.
+
+
+[Home](https://alkatoutl.github.io/)
