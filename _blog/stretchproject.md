@@ -46,8 +46,6 @@ Down below you can see my full proposal:
 
 # Takeaways
 
-Being able to contribute to [TransitHealth](https://scarletstudio.github.io/transithealth ) as much as I did gave me genuine hands-on experience with software engineering which is invaluable to me as I look forward to graduating in the spring of 2022 and finding a job thereafter. Working with full-stack development is something I have never done before and it along with all the amazing help my mentors have provided me along the way has given me much more confidence in my abilities to tackle real world problems.
-
-Also getting the chance to talk to an actual product manager and work on a realistic project in the way that they would has also gotten me more excited about the field and has confirmed that it really is something I am passionate about doing in my future. I am incredibly grateful for my mentor for giving us the chance to connect and for Diana and all of her help, her feedback and advice were invaluable to me.
+Getting the chance to talk to an actual product manager and work on a realistic project in the way that they would has also gotten me more excited about the field and has confirmed that it really is something I am passionate about doing in my future. I am incredibly grateful for my mentor for giving us the chance to connect and for Diana and all of her help, her feedback and advice were invaluable to me.
 
 Most of all these two projects have given me the opportunity to use my current skills and attain new ones while working towards a product that helps the general public, my number one goal since I was a child.
