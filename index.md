@@ -2,7 +2,8 @@
 layout: default
 title: Leilah Alkatout
 ---
- # My Projects 
+
+# My Projects 
  
  {% for page in site.blog %}
   
