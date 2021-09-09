@@ -1,9 +1,11 @@
 ---
 layout: default
+title: Product Management Project
+description: Internationalization & Localization
 ---
 # Stretch Project
 
-After finishing up my contributions to [TransitHealth](https://scarletstudio.github.io/transithealth) I was given the opportunity to work on a "[stretch project](https://twitter.com/mekkaokereke/status/1218940982122577921)".
+After finishing up my contributions to [TransitHealth](https://alkatoutl.github.io/blog/transithealth) I was given the opportunity to work on a "[stretch project](https://twitter.com/mekkaokereke/status/1218940982122577921)".
 
 Bascially, it was my time to develop something that stretched beyond the work of the internship. Outside of software engineering, I also have a strong interest in business which is why I aspire to be a product manager. Having this opportunity to work on something that went beyond the internship, I decided to develop a product management proposal for the [internationalizaion (i18n) and localization (l10n)](https://www.w3.org/International/questions/qa-i18n) of TransitHealth.
 
