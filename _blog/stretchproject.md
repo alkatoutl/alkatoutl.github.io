@@ -49,3 +49,7 @@ Down below you can see my full proposal:
 Getting the chance to talk to an actual product manager and work on a realistic project in the way that they would has also gotten me more excited about the field and has confirmed that it really is something I am passionate about doing in my future. I am incredibly grateful for my mentor for giving us the chance to connect and for Diana and all of her help, her feedback and advice were invaluable to me.
 
 Most of all these two projects have given me the opportunity to use my current skills and attain new ones while working towards a product that helps the general public, my number one goal since I was a child.
+
+
+
+[Home](https://alkatoutl.github.io/)
