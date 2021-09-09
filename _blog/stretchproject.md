@@ -44,6 +44,7 @@ Down below you can see my full proposal:
 <iframe src="https://drive.google.com/file/d/1NJkqHF6lB_znIj4iY7dh8xOVgDPiYf8F/preview" width="590" height="480" allow="autoplay"></iframe>
 
 
+
 # Takeaways
 
 Getting the chance to talk to an actual product manager and work on a realistic project in the way that they would has also gotten me more excited about the field and has confirmed that it really is something I am passionate about doing in my future. I am incredibly grateful for my mentor for giving us the chance to connect and for Diana and all of her help, her feedback and advice were invaluable to me.
